@@ -60,5 +60,12 @@ app.post('/books/',async(request,response)=>{
     
 })
 
+app.get('/',async(request,response)=>{
+    const getDetailsQuery = `SELECT * FROM book`
+
+    const responseData = await db.all(getDetailsQuery)
+    response.send(responseData)
+})
+
 initializeDB();
 
