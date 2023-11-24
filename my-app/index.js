@@ -5,6 +5,9 @@ const sqlite3 = require('sqlite3')
 const dbPath = path.join(__dirname,'goodreads.db')
 const app = express();
 app.use(express.json())
+app.use((requset,response)=>{
+    response.header('upstream', '*');
+})
 let db=null;
 
 const initializeDB = async ()=>{
